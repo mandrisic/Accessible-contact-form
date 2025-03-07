@@ -2,51 +2,81 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
-  
+  <link rel="stylesheet" href="./styles.css">
+  <script src="./main.js" defer></script>
   <title>Frontend Mentor | Contact form</title>
-
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
 </head>
 <body>
+  <div class="form-container">
+    <form> 
+      <h1>Contact Us</h1>
+      <section class="names-container">
+        <section class="name-container first">
+          <label for="first-name">First Name <span aria-hidden="true" class="required">*</span></label>
+          <input type="text" class="field" id="first-name" name="first-name" aria-describedby="first-name-error" autocomplete="name" required />
+          <p id="first-name-error" class="error-message">This field is required</p>
+        </section>
+        <section class="name-container last">
+          <label for="last-name">Last Name <span aria-hidden="true" class="required">*</span></label>
+          <input type="text" class="field" id="last-name" name="last-name" aria-describedby="last-name-error" autocomplete="family-name" required />
+          <p id="last-name-error" class="error-message">This field is required</p>
+        </section>
+      </section>
 
-  Contact Us
+      <section class="email-container">
+        <label for="email">Email Address <span aria-hidden="true" class="required">*</span></label>
+        <input type="email" id="email" name="email" autocomplete="email" aria-describedby="emailReq-error emailValid-error" required />
+        <p id="emailReq-error" class="error-message">This field is required</p>
+        <p id="emailValid-error" class="error-message">Please enter a valid email address</p>
+      </section>
 
-  First Name
-  This field is required
+      <fieldset>
+        <legend>Query Type <span aria-hidden="true" class="required">*</span></legend>
+        <section class="custom-container">
+          <section class="custom-radio">
+            <input type="radio" name="query" id="general" value="general" aria-describedby="query-error" />
+            <label for="general">General Enquiry</label>
+          </section>
+          <section class="custom-radio">
+            <input type="radio" name="query" id="support" value="support" aria-describedby="query-error" />
+            <label for="support">Support Request</label>
+          </section>
+          <p id="query-error" class="error-message">Please select a query type</p>
+        </section>
+      </fieldset>
 
-  Last Name
-  This field is required
+      <section class="message-container">
+        <label for="message">Message <span aria-hidden="true" class="required">*</span></label>
+        <textarea class="field" name="message" id="message" aria-describedby="message-box-error" required></textarea>
+        <p id="message-box-error" class="error-message">This field is required</p>
+      </section>
 
-  Email Address
-  Please enter a valid email address
-  This field is required
-
-  Query Type
-  General Enquiry
-  Support Request
-  Please select a query type
-
-  Message
-  This field is required
-
-  I consent to being contacted by the team
-  To submit this form, please consent to being contacted
-
-  Submit
-
-  Message Sent!
-  Thanks for completing the form. We'll be in touch soon!
-  
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
+      <section class="consent-container">
+        <div class="consent">
+          <input type="checkbox" id="consent" name="consent" aria-describedby="consent-error" required /> 
+          <label for="consent">I consent to being contacted by the team <span aria-hidden="true" class="required">*</span></label>
+        </div>
+        <p id="consent-error" class="error-message">To submit this form, please consent to being contacted</p>
+      </section>
+      
+      <button type="submit" id="submit">Submit</button>
+    </form>
   </div>
+
+  <div class="modal hidden">
+    <header>
+      <img src="./assets/images/icon-success-check.svg" alt="">
+      <p><strong>Message Sent!</strong></p>
+    </header>
+    <p>Thanks for completing the form. We'll be in touch soon!</p>
+    
+  </div>
+
+  <footer class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>. 
+    Coded by <a href="#">Mirna &risic</a>.
+  </footer>
 </body>
 </html>
